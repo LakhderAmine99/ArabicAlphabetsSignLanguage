@@ -4,6 +4,10 @@
 
 ## Run the app
 
-    - export FLASK_APP=./server/app.py
+-export the app main file:
 
-    - flask run
+    export FLASK_APP=./server/app.py
+
+-run the app
+
+    flask run
