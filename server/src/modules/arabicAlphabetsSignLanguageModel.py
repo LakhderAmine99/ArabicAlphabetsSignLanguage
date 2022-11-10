@@ -1,3 +1,5 @@
+import tensorflow as tf
+
 AASL_VERSIONS = [
     
     "AASL V.0",
@@ -11,4 +13,7 @@ class AASLModel(object):
         pass
     
     def load_model(self,version="AASL V.0"):
+        return tf.keras.models.load_model()
+    
+    def save_model(self):
         return
