@@ -8,7 +8,6 @@ __pycache__/
 
 # Distribution / packaging
 
-./server/models/aasl_v0
 data
 .Python
 build/
