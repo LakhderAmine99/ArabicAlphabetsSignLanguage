@@ -28,13 +28,13 @@ main{
 
 #upload-area{
 
-    width: 300px;
-    height: 300px;
-    background-color: rgba(170, 170, 170, 0.651);
-
+    padding: 1rem;
+    background:linear-gradient(to left,rgba(0, 105, 243, 0.556),rgba(24, 131, 254, 0.567),rgba(1, 162, 243, 0.616));
+    border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .interact-area{
@@ -42,9 +42,51 @@ main{
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: red;
-    height: 100px;
+    background:linear-gradient(to left,rgba(0, 105, 243, 0.556),rgba(24, 131, 254, 0.567),rgba(1, 162, 243, 0.616));
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.upload{
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.upload label{
+
+    padding: 1rem;
+    text-align:center;
+    background:linear-gradient(to left,rgb(0, 110, 243),rgb(57, 159, 248),rgb(0, 115, 255));
+    color:#fff;
+    font-size:18px;
+    font-family:"Open Sans",sans-serif;
+    text-transform:Uppercase;
+    font-weight:600;
+    border-radius:5px;
+    cursor:pointer;
+    user-select: none;
+}
+
+.uploadInput{
+
+    display: none;
+}
+
+#predictBtn{
+
+    padding: 0.6rem;
+
+    outline: none;
+    border: none;
+    font-size: 14px;
+    background:linear-gradient(to left,rgb(0, 110, 243),rgb(57, 159, 248),rgb(0, 115, 255));
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
