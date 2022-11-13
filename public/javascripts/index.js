@@ -1,34 +1,45 @@
-import Request from './modules/request/request.js';
+const BASE_URL = 'http://localhost:5000/';
 
 function ArabicAlphabetsSignLanguage(){
 
     const uploadArea = document.getElementById('uploadBtn');
+    
+    const predictBtn = document.getElementById('predictBtn');
 
     const imageSurface = document.querySelector('.image');
-
-    // var video = document.querySelector("#videoElement");
-
 
     this.start = function(){
 
         console.log("ArabicAlphabetsSignLanguage Application is up and running...");
 
         initEventListeners();
-
-        // if (navigator.mediaDevices.getUserMedia) {
-        //     navigator.mediaDevices.getUserMedia({ video: true })
-        //       .then(function (stream) {
-        //         video.srcObject = stream;
-        //       })
-        //       .catch(function (err0r) {
-        //         console.log("Something went wrong!");
-        //       });
-        //   }
     }
 
     function initEventListeners(){
 
         uploadArea.addEventListener('change',uploadHandler);
+        predictBtn.addEventListener('click',predictHandler);
+    }
+
+    async function predictHandler(e){
+
+        return await fetch(BASE_URL+'predict',{
+
+            "method": "GET",
+            "headers": {"Content-Type": "application/json"},
+
+        }).then((response) => {
+
+            return response.json();
+             
+        }).then((res) => {
+            
+            console.log(res);
+
+        }).catch((err) => {
+            
+            alert("error while predicting");
+        });
     }
 
     async function uploadHandler(e){
@@ -37,13 +48,32 @@ function ArabicAlphabetsSignLanguage(){
 
         let src = URL.createObjectURL(e.target.files[0]);
 
-        let img = new Image();
+        let img = new Image(320,320);
 
         img.src = src;
-        img.width = 300;
-        img.height = 300;
 
         imageSurface.append(img);
+        
+        return await fetch(BASE_URL+'upload',{
+
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(e.target.files[0].name),
+
+        }).then((response) => {
+
+            return response.json();
+            
+        }).then(function(res){
+
+            console.log('success');
+            alert(res.sign);
+
+        }).catch((err) => {
+            
+            alert("Error while uploading");
+        });
+
     }
 }
 
