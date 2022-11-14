@@ -73,6 +73,18 @@ main{
     user-select: none;
 }
 
+img{
+
+    border-radius: 0.5rem;
+}
+
+.image-title{
+
+    color: white;
+    font-weight: bold;
+    margin: 0.4rem 0;
+}
+
 .uploadInput{
 
     display: none;

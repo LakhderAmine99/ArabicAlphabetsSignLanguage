@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000/';
+const BASE_URL = 'http://127.0.0.1:5000/';
 
 function ArabicAlphabetsSignLanguage(){
 
@@ -7,6 +7,7 @@ function ArabicAlphabetsSignLanguage(){
     const predictBtn = document.getElementById('predictBtn');
 
     const imageSurface = document.querySelector('.image');
+    const imageTitle = document.querySelector('.image-title');
 
     this.start = function(){
 
@@ -47,12 +48,12 @@ function ArabicAlphabetsSignLanguage(){
         imageSurface.innerHTML = "";
 
         let src = URL.createObjectURL(e.target.files[0]);
-
         let img = new Image(320,320);
 
         img.src = src;
 
         imageSurface.append(img);
+        imageTitle.innerHTML = e.target.files[0].name;
         
         return await fetch(BASE_URL+'upload',{
 
